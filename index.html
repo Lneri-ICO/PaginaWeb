@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NeriSoft Dev – Full Stack Developer</title>
+<title>NeriSoft Dev – Desarrollador Full Stack & Android</title>
+<meta name="description" content="NeriSoft Dev – Ingeniero en Sistemas Computacionales. Desarrollo de apps Android, sistemas de inventario, control de acceso y páginas web para pequeños negocios.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -31,501 +32,186 @@
     color: var(--ink);
     line-height: 1.7;
     font-size: 16px;
+    overflow-x: hidden;
   }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
 
   /* NAV */
   nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(247,248,250,0.85);
-    backdrop-filter: blur(12px);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,248,250,0.88);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 58px;
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
   }
-
   .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 1.15rem;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: -0.5px;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem;
+    color: var(--ink); text-decoration: none; letter-spacing: -0.5px;
+    display: flex; align-items: center; gap: 0.4rem;
   }
+  .nav-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  nav ul { display: flex; gap: 0.2rem; list-style: none; }
+  nav ul a { font-size: 0.87rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.4rem 0.85rem; border-radius: 99px; transition: color 0.2s, background 0.2s; }
+  nav ul a:hover, nav ul a.active { color: var(--ink); background: var(--border); }
+  .nav-cta { background: var(--ink) !important; color: #fff !important; padding: 0.45rem 1.1rem !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--green) !important; }
 
-  .nav-logo span { color: var(--green); }
-
-  nav ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  nav ul a {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
-    letter-spacing: 0.01em;
-  }
-
-  nav ul a:hover { color: var(--green); }
-
-  .nav-cta {
-    background: var(--ink);
-    color: #fff !important;
-    padding: 0.45rem 1.1rem;
-    border-radius: 99px;
-    font-size: 0.84rem !important;
-    font-weight: 500 !important;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--green) !important; color: #fff !important; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.85)} }
 
   /* HERO */
-  .hero {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 6rem 2rem 5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 4rem;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--green-light);
-    color: var(--green-dark);
-    border-radius: 99px;
-    padding: 0.35rem 1rem;
-    font-size: 0.82rem;
-    font-weight: 500;
-    margin-bottom: 1.4rem;
-  }
-
-  .badge-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--green);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 3.2rem;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
-    color: var(--ink);
-    margin-bottom: 1.2rem;
-  }
-
+  .hero { max-width: 1100px; margin: 0 auto; padding: 6rem 2.5rem 5rem; display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 4rem; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--green-light); color: var(--green-dark); border-radius: 99px; padding: 0.35rem 1rem; font-size: 0.82rem; font-weight: 500; margin-bottom: 1.4rem; border: 1px solid #b5e8cf; }
+  .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  .hero h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 3.3rem; line-height: 1.08; letter-spacing: -1.5px; color: var(--ink); margin-bottom: 1.2rem; }
   .hero h1 span { color: var(--green); }
+  .hero-sub { color: var(--muted); font-size: 1.05rem; max-width: 460px; margin-bottom: 2rem; font-weight: 300; line-height: 1.78; }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .btn-primary { background: var(--green); color: #fff; border: none; border-radius: 99px; padding: 0.78rem 1.65rem; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; display: inline-block; box-shadow: 0 4px 20px rgba(46,194,126,0.3); }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(46,194,126,0.4); }
+  .btn-ghost { color: var(--ink); font-size: 0.9rem; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.78rem 1.2rem; border: 1px solid var(--border); border-radius: 99px; transition: border-color 0.2s, color 0.2s; }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green-dark); }
+  .hero-tech { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .hero-tech-label { font-size: 0.78rem; color: var(--muted); margin-right: 0.25rem; }
+  .tech-chip { display: inline-flex; align-items: center; gap: 0.35rem; background: var(--card); border: 1px solid var(--border); border-radius: 99px; padding: 0.28rem 0.75rem; font-size: 0.78rem; font-weight: 500; color: var(--ink2); }
 
-  .hero p {
-    color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 440px;
-    margin-bottom: 2rem;
-    font-weight: 300;
-    line-height: 1.75;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--green);
-    color: #fff;
-    border: none;
-    border-radius: 99px;
-    padding: 0.75rem 1.6rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
-
-  .btn-ghost {
-    color: var(--ink);
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition: color 0.2s;
-  }
-
-  .btn-ghost:hover { color: var(--green); }
-
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-  }
-
-  .avatar-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 2rem;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
-    position: relative;
-  }
-
-  .avatar-ring {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--green) 0%, #1b8a56 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 2.2rem;
-    color: #fff;
-    margin: 0 auto 1rem;
-  }
-
-  .avatar-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: var(--ink);
-    margin-bottom: 0.25rem;
-  }
-
-  .avatar-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.2rem; }
-
-  .skill-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-  }
-
-  .pill {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 99px;
-    padding: 0.3rem 0.75rem;
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--ink2);
-  }
-
+  /* AVATAR CARD */
+  .hero-visual { display: flex; justify-content: center; }
+  .avatar-card { background: var(--card); border: 1px solid var(--border); border-radius: 28px; padding: 2rem 1.75rem; width: 310px; text-align: center; box-shadow: 0 12px 50px rgba(0,0,0,0.07); position: relative; }
+  .avatar-ring { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, var(--green), #1b8a56); display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.1rem; color: #fff; margin: 0 auto 1rem; box-shadow: 0 6px 24px rgba(46,194,126,0.35); }
+  .avatar-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .avatar-card .role { font-size: 0.83rem; color: var(--muted); margin-bottom: 1.1rem; }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-bottom: 1.2rem; }
+  .pill { background: var(--surface); border: 1px solid var(--border); border-radius: 99px; padding: 0.28rem 0.7rem; font-size: 0.77rem; font-weight: 500; color: var(--ink2); }
   .pill.green { background: var(--green-light); border-color: #b5e8cf; color: var(--green-dark); }
+  .avatar-divider { border: none; border-top: 1px solid var(--border); margin: 0.75rem 0; }
+  .avatar-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .avatar-stat { background: var(--surface); border-radius: 10px; padding: 0.6rem; }
+  .avatar-stat-num { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--green); }
+  .avatar-stat-label { font-size: 0.72rem; color: var(--muted); }
+  .floating-tag { position: absolute; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0.45rem 0.8rem; font-size: 0.76rem; font-weight: 500; color: var(--ink2); box-shadow: 0 4px 16px rgba(0,0,0,0.08); white-space: nowrap; }
+  .tag-apps { top: -14px; right: -18px; }
+  .tag-kotlin { bottom: 30px; left: -28px; }
 
-  .floating-tag {
-    position: absolute;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 0.5rem 0.8rem;
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--ink2);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    white-space: nowrap;
-  }
-
-  .tag-apps { top: -14px; right: -20px; }
-  .tag-commits { bottom: 30px; left: -28px; }
-  .tag-commits span { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: var(--green); }
-
-  /* SECTION COMMONS */
-  section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
-
-  .section-label {
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 0.6rem;
-  }
-
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-    color: var(--ink);
-    letter-spacing: -0.5px;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-sub {
-    color: var(--muted);
-    font-size: 1rem;
-    font-weight: 300;
-    max-width: 500px;
-    margin-bottom: 2.5rem;
-  }
+  /* SECTIONS */
+  section { max-width: 1100px; margin: 0 auto; padding: 4.5rem 2.5rem; }
+  .section-label { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 0.55rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 2rem; color: var(--ink); letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+  .section-sub { color: var(--muted); font-size: 1rem; font-weight: 300; max-width: 500px; margin-bottom: 2.5rem; line-height: 1.75; }
 
   /* ABOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+  .about-text p { color: var(--ink2); margin-bottom: 1.1rem; font-size: 1rem; line-height: 1.82; }
+  .edu-badge { display: inline-flex; align-items: center; gap: 0.65rem; background: var(--green-light); border: 1px solid #b5e8cf; border-radius: 14px; padding: 0.75rem 1.1rem; margin-top: 0.25rem; }
+  .edu-badge-title { font-size: 0.83rem; font-weight: 500; color: var(--green-dark); }
+  .edu-badge-sub { font-size: 0.77rem; color: var(--muted); }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.3rem 1.4rem; transition: box-shadow 0.2s; }
+  .stat-box:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+  .stat-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.1rem; color: var(--green); line-height: 1; margin-bottom: 0.35rem; }
+  .stat-label { font-size: 0.81rem; color: var(--muted); }
 
-  .about-text p {
-    color: var(--ink2);
-    margin-bottom: 1.1rem;
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .stat-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.2rem 1.4rem;
-  }
-
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
-    color: var(--green);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 400; }
+  /* WHY ME */
+  .whyme-bg { background: var(--ink); border-radius: 32px; margin: 0 1.5rem; }
+  .whyme-inner { max-width: 1100px; margin: 0 auto; padding: 4rem 3rem; }
+  .whyme-inner .section-title { color: #fff; }
+  .whyme-inner .section-sub { color: rgba(255,255,255,0.5); }
+  .whyme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .whyme-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 18px; padding: 1.5rem; transition: background 0.2s, border-color 0.2s; }
+  .whyme-card:hover { background: rgba(46,194,126,0.1); border-color: rgba(46,194,126,0.3); }
+  .whyme-icon { font-size: 1.6rem; margin-bottom: 0.9rem; }
+  .whyme-card h4 { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.95rem; color: #fff; margin-bottom: 0.4rem; }
+  .whyme-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
 
   /* SKILLS */
-  .skills-bg { background: var(--ink); border-radius: 32px; margin: 0 1.5rem; }
+  .skills-section { background: var(--accent); border-radius: 32px; margin: 2rem 1.5rem; }
+  .skills-inner { max-width: 1100px; margin: 0 auto; padding: 4rem 3rem; }
+  .tech-logos { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem; }
+  .tech-logo { display: flex; align-items: center; gap: 0.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0.55rem 1rem; font-size: 0.85rem; font-weight: 500; color: var(--ink2); transition: border-color 0.2s, box-shadow 0.2s; }
+  .tech-logo:hover { border-color: var(--green); box-shadow: 0 2px 12px rgba(46,194,126,0.15); }
+  .skills-bars { display: flex; flex-direction: column; gap: 1.2rem; }
+  .skill-bar-header { display: flex; justify-content: space-between; margin-bottom: 0.45rem; }
+  .skill-bar-name { font-size: 0.88rem; font-weight: 500; color: var(--ink2); }
+  .skill-bar-pct { font-size: 0.82rem; color: var(--muted); font-family: 'Syne', sans-serif; font-weight: 600; }
+  .skill-bar-track { background: var(--border); border-radius: 99px; height: 7px; overflow: hidden; }
+  .skill-bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--green), #1b8a56); width: 0%; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
 
-  .skills-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 4rem 3rem;
-  }
-
-  .skills-inner .section-title { color: #fff; }
-  .skills-inner .section-sub { color: rgba(255,255,255,0.55); }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-
-  .skill-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px;
-    padding: 1.4rem;
-    transition: background 0.2s, border-color 0.2s;
-  }
-
-  .skill-card:hover {
-    background: rgba(46,194,126,0.12);
-    border-color: rgba(46,194,126,0.35);
-  }
-
-  .skill-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: rgba(46,194,126,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-  }
-
-  .skill-card h4 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #fff;
-    margin-bottom: 0.5rem;
-  }
-
-  .skill-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+  .service-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.5rem; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
+  .service-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); border-color: #c8ead7; }
+  .service-emoji { font-size: 1.65rem; margin-bottom: 0.85rem; }
+  .service-card h4 { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.97rem; color: var(--ink); margin-bottom: 0.4rem; }
+  .service-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
 
   /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.2rem;
-  }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 1.2rem; }
+  .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 1.7rem; transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+  .project-card:hover { box-shadow: 0 14px 44px rgba(0,0,0,0.09); transform: translateY(-3px); }
+  .project-tag { display: inline-block; background: var(--green-light); color: var(--green-dark); border-radius: 99px; padding: 0.25rem 0.75rem; font-size: 0.74rem; font-weight: 600; margin-bottom: 1rem; }
+  .project-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .project-card > p { font-size: 0.87rem; color: var(--muted); line-height: 1.68; margin-bottom: 1.2rem; flex: 1; }
+  .project-stack { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .stack-tag { background: var(--surface); border: 1px solid var(--border); border-radius: 7px; padding: 0.22rem 0.58rem; font-size: 0.74rem; color: var(--ink2); }
+  .project-gh-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem; font-size: 0.82rem; color: var(--green-dark); text-decoration: none; font-weight: 500; transition: gap 0.2s; }
+  .project-gh-link:hover { gap: 0.65rem; }
 
-  .project-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 1.6rem;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-
-  .project-card:hover {
-    box-shadow: 0 12px 40px rgba(0,0,0,0.09);
-    transform: translateY(-3px);
-  }
-
-  .project-tag {
-    display: inline-block;
-    background: var(--green-light);
-    color: var(--green-dark);
-    border-radius: 99px;
-    padding: 0.25rem 0.7rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-
-  .project-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-  }
-
-  .project-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.2rem; }
-
-  .project-stack {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-  }
-
-  .stack-tag {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 0.2rem 0.55rem;
-    font-size: 0.75rem;
-    color: var(--ink2);
-    font-weight: 400;
-  }
+  /* GITHUB DESC BOX */
+  .github-desc-box { background: var(--ink); border-radius: 24px; padding: 2.5rem 3rem; margin-top: 2.5rem; }
+  .github-desc-box > h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; }
+  .github-desc-box > p { font-size: 0.84rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+  .gh-repo { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 1.2rem 1.4rem; margin-bottom: 0.75rem; }
+  .gh-repo:last-child { margin-bottom: 0; }
+  .gh-repo-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
+  .gh-repo-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--green); }
+  .gh-repo-lang { font-size: 0.75rem; color: rgba(255,255,255,0.4); display: flex; align-items: center; gap: 0.35rem; }
+  .lang-dot { width: 8px; height: 8px; border-radius: 50%; background: #a97bff; display: inline-block; }
+  .gh-repo-desc { font-size: 0.83rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+  .gh-copy-btn { background: rgba(46,194,126,0.15); border: 1px solid rgba(46,194,126,0.3); color: var(--green); border-radius: 8px; padding: 0.35rem 0.8rem; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
+  .gh-copy-btn:hover { background: rgba(46,194,126,0.25); }
+  .gh-copy-btn.copied { background: rgba(46,194,126,0.3); color: #fff; }
 
   /* CONTACT */
-  .contact-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .contact-text h2 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
-    color: var(--ink);
-    letter-spacing: -0.5px;
-    margin-bottom: 0.75rem;
-  }
-
+  .contact-box { background: var(--card); border: 1px solid var(--border); border-radius: 28px; padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; box-shadow: 0 8px 40px rgba(0,0,0,0.05); }
+  .contact-text h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2rem; color: var(--ink); letter-spacing: -0.5px; margin-bottom: 0.75rem; }
   .contact-text p { color: var(--muted); font-size: 0.97rem; line-height: 1.75; margin-bottom: 1.5rem; }
-
-  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    color: var(--ink2);
-    font-size: 0.92rem;
-    font-weight: 400;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
-  }
-
-  .contact-link:hover {
-    border-color: var(--green);
-    color: var(--green-dark);
-    background: var(--green-light);
-  }
-
-  .contact-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    background: var(--surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-  }
+  .contact-links { display: flex; flex-direction: column; gap: 0.7rem; }
+  .contact-link { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--ink2); font-size: 0.9rem; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: 14px; transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.15s; }
+  .contact-link:hover { border-color: var(--green); color: var(--green-dark); background: var(--green-light); transform: translateX(4px); }
+  .contact-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
 
   /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.83rem;
-    color: var(--muted);
-  }
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 0.83rem; color: var(--muted); }
+  footer span { color: var(--green); font-weight: 600; }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--green); }
 
-  footer span { color: var(--green); font-weight: 500; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+  .hero-text { animation: fadeUp 0.65s ease both; }
+  .hero-visual { animation: fadeUp 0.65s 0.18s ease both; }
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-text { animation: fadeUp 0.6s ease both; }
-  .hero-visual { animation: fadeUp 0.7s 0.15s ease both; }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
+  @media (max-width: 820px) {
     .hero { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; padding: 3.5rem 1.5rem 3rem; }
-    .hero h1 { font-size: 2.3rem; }
-    .hero p { margin: 0 auto 2rem; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero-sub { margin: 0 auto 2rem; }
     .hero-actions { justify-content: center; }
-    .about-grid { grid-template-columns: 1fr; }
-    .contact-box { grid-template-columns: 1fr; }
-    .skills-bg { margin: 0 0.75rem; border-radius: 20px; }
-    .skills-inner { padding: 3rem 1.5rem; }
+    .hero-tech { justify-content: center; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-box { grid-template-columns: 1fr; gap: 2rem; }
+    .whyme-bg, .skills-section { margin: 0 0.75rem; border-radius: 20px; }
+    .whyme-inner, .skills-inner { padding: 3rem 1.5rem; }
     nav ul { display: none; }
+    .github-desc-box { padding: 1.75rem; }
+    .floating-tag { display: none; }
   }
 </style>
 </head>
@@ -533,10 +219,11 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">NeriSoft<span>.</span>Dev</a>
+  <a href="#" class="nav-logo">NeriSoft<span style="color:var(--green)">.</span>Dev <span class="nav-logo-dot"></span></a>
   <ul>
     <li><a href="#sobre-mi">Sobre mí</a></li>
-    <li><a href="#habilidades">Habilidades</a></li>
+    <li><a href="#habilidades">Skills</a></li>
+    <li><a href="#servicios">Servicios</a></li>
     <li><a href="#proyectos">Proyectos</a></li>
     <li><a href="#contacto" class="nav-cta">Contacto</a></li>
   </ul>
@@ -545,31 +232,42 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-text">
-    <div class="hero-badge">
-      <div class="badge-dot"></div>
-      Disponible para proyectos
-    </div>
+    <div class="hero-badge"><div class="badge-dot"></div> Disponible para proyectos</div>
     <h1>Hola, soy<br><span>NeriSoft Dev</span></h1>
-    <p>Desarrollador Full Stack especializado en soluciones para pequeños negocios — sistemas de inventario, control de acceso y apps móviles a la medida. Egresado de la Universidad de León.</p>
+    <p class="hero-sub">Desarrollador Full Stack e Ingeniero en Sistemas Computacionales. Construyo apps Android, sistemas de gestión y páginas web a la medida para pequeños negocios.</p>
     <div class="hero-actions">
       <a href="#proyectos" class="btn-primary">Ver proyectos</a>
       <a href="#contacto" class="btn-ghost">Contáctame →</a>
+    </div>
+    <div class="hero-tech">
+      <span class="hero-tech-label">Stack:</span>
+      <span class="tech-chip">🤖 Kotlin</span>
+      <span class="tech-chip">🐍 Python</span>
+      <span class="tech-chip">🌐 JavaScript</span>
+      <span class="tech-chip">🟢 Node.js</span>
+      <span class="tech-chip">🎨 HTML/CSS</span>
     </div>
   </div>
   <div class="hero-visual">
     <div class="avatar-card">
       <div class="floating-tag tag-apps">📱 Apps en Google Play</div>
-      <div class="floating-tag tag-commits"><span>∞</span> commits</div>
+      <div class="floating-tag tag-kotlin">🤖 Kotlin · Python</div>
       <div class="avatar-ring">NS</div>
       <h3>NeriSoft Dev</h3>
-      <p>Full Stack Developer</p>
+      <p class="role">Full Stack · Android Developer</p>
       <div class="skill-pills">
-        <span class="pill green">HTML &amp; CSS</span>
-        <span class="pill green">JavaScript</span>
         <span class="pill green">Kotlin</span>
+        <span class="pill green">Python</span>
         <span class="pill">Node.js</span>
-        <span class="pill">Python</span>
-        <span class="pill">Full Stack</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">Android</span>
+      </div>
+      <hr class="avatar-divider">
+      <div class="avatar-stats">
+        <div class="avatar-stat"><div class="avatar-stat-num">2</div><div class="avatar-stat-label">años exp.</div></div>
+        <div class="avatar-stat"><div class="avatar-stat-num">13+</div><div class="avatar-stat-label">repos GitHub</div></div>
+        <div class="avatar-stat"><div class="avatar-stat-num">ISC</div><div class="avatar-stat-label">Univ. León</div></div>
+        <div class="avatar-stat"><div class="avatar-stat-num">5+</div><div class="avatar-stat-label">proyectos</div></div>
       </div>
     </div>
   </div>
@@ -577,202 +275,236 @@
 
 <!-- SOBRE MÍ -->
 <section id="sobre-mi">
-  <div class="section-label">Sobre mí</div>
-  <div class="about-grid">
-    <div>
-      <h2 class="section-title">Código con propósito,<br>diseño con cuidado.</h2>
-      <div class="about-text">
-        <p>Soy Ingeniero en Sistemas Computacionales egresado de la <strong>Universidad de León</strong>. Con 2 años de experiencia, me especializo en construir soluciones digitales a la medida para pequeños negocios y emprendedores.</p>
-        <p>He desarrollado sistemas de inventario, control de acceso y aplicaciones móviles personalizadas que ayudan a empresas locales a llevar un mejor control de sus operaciones.</p>
-        <p>Me importa que cada proyecto sea simple de usar, pero poderoso por dentro.</p>
-        <div style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--green-light); border-radius: 12px; padding: 0.7rem 1rem; margin-top: 0.5rem;">
-          <span style="font-size: 1.1rem;">🎓</span>
-          <div>
-            <div style="font-size: 0.82rem; font-weight: 500; color: var(--green-dark);">Ing. en Sistemas Computacionales</div>
-            <div style="font-size: 0.78rem; color: var(--muted);">Universidad de León</div>
+  <div class="reveal">
+    <div class="section-label">Sobre mí</div>
+    <div class="about-grid">
+      <div>
+        <h2 class="section-title">Código con propósito,<br>diseño con cuidado.</h2>
+        <div class="about-text">
+          <p>Soy Ingeniero en Sistemas Computacionales egresado de la <strong>Universidad de León</strong>. Con 2 años de experiencia, me especializo en construir soluciones digitales a la medida para pequeños negocios y emprendedores.</p>
+          <p>He desarrollado aplicaciones Android en <strong>Kotlin</strong>, sistemas de inventario y control de acceso que ayudan a empresas locales a llevar un mejor control de sus operaciones.</p>
+          <p>Me importa que cada proyecto sea simple de usar para el cliente, pero robusto y bien construido por dentro.</p>
+          <div class="edu-badge">
+            <span style="font-size:1.15rem">🎓</span>
+            <div>
+              <div class="edu-badge-title">Ing. en Sistemas Computacionales</div>
+              <div class="edu-badge-sub">Universidad de León · León, Guanajuato</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="about-stats">
-      <div class="stat-box">
-        <div class="stat-num">2</div>
-        <div class="stat-label">Años de experiencia</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">13+</div>
-        <div class="stat-label">Proyectos en GitHub</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">ISC</div>
-        <div class="stat-label">Ing. en Sistemas Computacionales</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">A la medida del cliente</div>
+      <div class="about-stats">
+        <div class="stat-box reveal reveal-delay-1"><div class="stat-num">2</div><div class="stat-label">Años de experiencia</div></div>
+        <div class="stat-box reveal reveal-delay-2"><div class="stat-num">13+</div><div class="stat-label">Proyectos en GitHub</div></div>
+        <div class="stat-box reveal reveal-delay-3"><div class="stat-num">ISC</div><div class="stat-label">Ing. en Sistemas</div></div>
+        <div class="stat-box reveal reveal-delay-4"><div class="stat-num">100%</div><div class="stat-label">A la medida del cliente</div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- POR QUÉ YO -->
+<div class="whyme-bg">
+  <div class="whyme-inner">
+    <div class="section-label" style="color:rgba(46,194,126,0.9)">¿Por qué elegirme?</div>
+    <h2 class="section-title">Lo que me diferencia</h2>
+    <p class="section-sub">No solo escribo código — entiendo el negocio y construyo soluciones que realmente funcionan.</p>
+    <div class="whyme-grid">
+      <div class="whyme-card reveal reveal-delay-1">
+        <div class="whyme-icon">🎯</div>
+        <h4>Orientado al negocio</h4>
+        <p>Entiendo las necesidades reales de pequeñas empresas. Desarrollo software que resuelve problemas concretos, no solo tecnología por tecnología.</p>
+      </div>
+      <div class="whyme-card reveal reveal-delay-2">
+        <div class="whyme-icon">⚡</div>
+        <h4>Entrega rápida</h4>
+        <p>Trabajo de forma ágil y enfocada. Priorizo lo que importa para que veas resultados en poco tiempo sin sacrificar calidad.</p>
+      </div>
+      <div class="whyme-card reveal reveal-delay-3">
+        <div class="whyme-icon">🔧</div>
+        <h4>Full Stack + Soporte técnico</h4>
+        <p>Desde el diseño hasta Google Play o tu servidor. También ofrezco reparación y mantenimiento de equipos de cómputo.</p>
+      </div>
+      <div class="whyme-card reveal reveal-delay-4">
+        <div class="whyme-icon">🤝</div>
+        <h4>Comunicación directa</h4>
+        <p>Sin intermediarios. Hablas directo conmigo, quien desarrolla tu proyecto. Sin malentendidos, con seguimiento real.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- HABILIDADES -->
-<div class="skills-bg" id="habilidades">
+<div class="skills-section" id="habilidades">
   <div class="skills-inner">
-    <div class="section-label" style="color: rgba(46,194,126,0.9);">Habilidades</div>
+    <div class="section-label">Habilidades</div>
     <h2 class="section-title">Stack tecnológico</h2>
-    <p class="section-sub" style="margin-bottom: 2.5rem;">Las herramientas con las que construyo cada día.</p>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon">🎨</div>
-        <h4>Frontend</h4>
-        <p>HTML5, CSS3, JavaScript moderno. Interfaces responsivas, accesibles y rápidas.</p>
+    <p class="section-sub">Las herramientas con las que construyo cada día.</p>
+    <div class="tech-logos reveal">
+      <div class="tech-logo">🤖 Kotlin</div>
+      <div class="tech-logo">🐍 Python</div>
+      <div class="tech-logo">🌐 JavaScript</div>
+      <div class="tech-logo">🟢 Node.js</div>
+      <div class="tech-logo">🎨 HTML5 &amp; CSS3</div>
+      <div class="tech-logo">📱 Android SDK</div>
+      <div class="tech-logo">🗄️ MySQL / SQLite</div>
+      <div class="tech-logo">🔨 Gradle</div>
+      <div class="tech-logo">🐙 Git &amp; GitHub</div>
+    </div>
+    <div class="skills-bars reveal">
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span class="skill-bar-name">Kotlin / Android</span><span class="skill-bar-pct">80%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">⚙️</div>
-        <h4>Backend</h4>
-        <p>Node.js y Python para APIs REST, lógica de negocio y servicios escalables.</p>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span class="skill-bar-name">Python</span><span class="skill-bar-pct">85%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">📱</div>
-        <h4>Apps móviles</h4>
-        <p>Desarrollo y publicación de apps en Google Play Store con experiencia real.</p>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span class="skill-bar-name">HTML / CSS / JavaScript</span><span class="skill-bar-pct">78%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">🗄️</div>
-        <h4>Bases de datos</h4>
-        <p>Diseño y gestión de bases de datos relacionales y no relacionales.</p>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span class="skill-bar-name">Node.js / Backend</span><span class="skill-bar-pct">70%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span class="skill-bar-name">Bases de datos (MySQL, SQLite)</span><span class="skill-bar-pct">75%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- SERVICIOS -->
-<section id="servicios" style="background: var(--accent); border-radius: 32px; margin: 0 1.5rem 1rem; max-width: unset;">
-  <div style="max-width: 1100px; margin: 0 auto; padding: 4rem 3rem;">
+<section id="servicios">
+  <div class="reveal">
     <div class="section-label">Servicios</div>
     <h2 class="section-title">¿Qué puedo hacer por ti?</h2>
-    <p class="section-sub">Soluciones a la medida para pequeños negocios y emprendedores.</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
-      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;">
-        <div style="font-size: 1.6rem; margin-bottom: 0.8rem;">📦</div>
-        <h4 style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 0.4rem;">Sistemas de Inventario</h4>
-        <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.65;">Control de stock, entradas y salidas, reportes automáticos para tu negocio.</p>
-      </div>
-      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;">
-        <div style="font-size: 1.6rem; margin-bottom: 0.8rem;">🚪</div>
-        <h4 style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 0.4rem;">Control de Acceso</h4>
-        <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.65;">Registro de miembros, membresías y accesos para gimnasios y espacios.</p>
-      </div>
-      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;">
-        <div style="font-size: 1.6rem; margin-bottom: 0.8rem;">📱</div>
-        <h4 style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 0.4rem;">Apps Móviles</h4>
-        <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.65;">Aplicaciones para Android al gusto del cliente, publicadas en Google Play.</p>
-      </div>
-      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;">
-        <div style="font-size: 1.6rem; margin-bottom: 0.8rem;">🌐</div>
-        <h4 style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 0.4rem;">Páginas Web</h4>
-        <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.65;">Sitios web profesionales con HTML, CSS, JavaScript y backend en Python o Node.js.</p>
-      </div>
-      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;">
-        <div style="font-size: 1.6rem; margin-bottom: 0.8rem;">🔧</div>
-        <h4 style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 0.4rem;">Reparación de Computadoras</h4>
-        <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.65;">Diagnóstico y reparación de equipos de escritorio y laptops. Hardware, software y mantenimiento preventivo.</p>
-      </div>
-      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;">
-        <div style="font-size: 1.6rem; margin-bottom: 0.8rem;">💿</div>
-        <h4 style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 0.4rem;">Instalación de Sistemas Operativos</h4>
-        <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.65;">Instalación y configuración de Windows, Linux y macOS. Formateo, particiones y optimización del equipo.</p>
-      </div>
-      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;">
-        <div style="font-size: 1.6rem; margin-bottom: 0.8rem;">⚙️</div>
-        <h4 style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 0.4rem;">Instalación de Programas</h4>
-        <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.65;">Instalación y configuración de software especializado, ofimática, antivirus y herramientas de productividad.</p>
-      </div>
-    </div>
+    <p class="section-sub">Soluciones a la medida para pequeños negocios, emprendedores y profesionales.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1"><div class="service-emoji">📱</div><h4>Apps Android</h4><p>Aplicaciones para Android al gusto del cliente, desarrolladas en Kotlin y publicadas en Google Play Store.</p></div>
+    <div class="service-card reveal reveal-delay-2"><div class="service-emoji">📦</div><h4>Sistemas de Inventario</h4><p>Control de stock, entradas y salidas, reportes automáticos y alertas de stock mínimo para tu negocio.</p></div>
+    <div class="service-card reveal reveal-delay-3"><div class="service-emoji">🚪</div><h4>Control de Acceso</h4><p>Registro de miembros, verificación de membresías y control de entradas para gimnasios y espacios.</p></div>
+    <div class="service-card reveal reveal-delay-4"><div class="service-emoji">🌐</div><h4>Páginas Web</h4><p>Sitios web profesionales con HTML, CSS, JavaScript y backend en Python o Node.js. Responsivos y rápidos.</p></div>
+    <div class="service-card reveal reveal-delay-1"><div class="service-emoji">🔧</div><h4>Reparación de Computadoras</h4><p>Diagnóstico y reparación de equipos de escritorio y laptops. Hardware, software y mantenimiento preventivo.</p></div>
+    <div class="service-card reveal reveal-delay-2"><div class="service-emoji">💿</div><h4>Instalación de Sistemas Operativos</h4><p>Instalación de Windows, Linux y macOS. Formateo, particiones y optimización del equipo.</p></div>
+    <div class="service-card reveal reveal-delay-3"><div class="service-emoji">⚙️</div><h4>Instalación de Programas</h4><p>Instalación y configuración de software especializado, ofimática, antivirus y herramientas de productividad.</p></div>
   </div>
 </section>
 
 <!-- PROYECTOS -->
 <section id="proyectos">
-  <div class="section-label">Proyectos</div>
-  <h2 class="section-title">Lo que he construido</h2>
-  <p class="section-sub">Una muestra de proyectos reales — desde apps web hasta apps en Google Play.</p>
+  <div class="reveal">
+    <div class="section-label">Proyectos</div>
+    <h2 class="section-title">Lo que he construido</h2>
+    <p class="section-sub">Proyectos reales — desde apps Android en Kotlin hasta sistemas de gestión en Python.</p>
+  </div>
   <div class="projects-grid">
-    <div class="project-card">
-      <span class="project-tag">App móvil · Kotlin</span>
-      <h3>FresasApp</h3>
-      <p>Aplicación Android desarrollada en Kotlin para la gestión y control de un negocio de fresas. Diseñada para simplificar el registro y seguimiento del producto.</p>
+    <div class="project-card reveal reveal-delay-1">
+      <span class="project-tag">App Android · Kotlin</span>
+      <h3>🍓 FresasApp</h3>
+      <p>Aplicación Android desarrollada en Kotlin para la gestión y control de un negocio de fresas. Permite registrar productos, controlar inventario y dar seguimiento a la operación del negocio desde el celular.</p>
       <div class="project-stack">
         <span class="stack-tag">Kotlin</span>
-        <span class="stack-tag">Android</span>
+        <span class="stack-tag">Android SDK</span>
         <span class="stack-tag">Gradle</span>
+        <span class="stack-tag">SQLite</span>
       </div>
-      <a href="https://github.com/Lneri-ICO/FresasApp" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-size:0.82rem;color:var(--green-dark);text-decoration:none;font-weight:500;">💻 Ver en GitHub →</a>
+      <a href="https://github.com/Lneri-ICO/FresasApp" target="_blank" class="project-gh-link">💻 Ver en GitHub →</a>
     </div>
-    <div class="project-card">
-      <span class="project-tag">App móvil · Kotlin</span>
-      <h3>CVExpress</h3>
-      <p>Aplicación Android para generar y compartir currículums de forma rápida y profesional. Permite al usuario crear su CV desde el celular en minutos.</p>
+    <div class="project-card reveal reveal-delay-2">
+      <span class="project-tag">App Android · Kotlin</span>
+      <h3>📄 CVExpress</h3>
+      <p>Aplicación Android para crear y compartir currículums de forma rápida y profesional directamente desde el celular. El usuario llena sus datos y obtiene su CV listo para compartir en minutos.</p>
       <div class="project-stack">
         <span class="stack-tag">Kotlin</span>
-        <span class="stack-tag">Android</span>
+        <span class="stack-tag">Android SDK</span>
         <span class="stack-tag">Gradle</span>
+        <span class="stack-tag">PDF / Share</span>
       </div>
-      <a href="https://github.com/Lneri-ICO/CVExpress" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-size:0.82rem;color:var(--green-dark);text-decoration:none;font-weight:500;">💻 Ver en GitHub →</a>
+      <a href="https://github.com/Lneri-ICO/CVExpress" target="_blank" class="project-gh-link">💻 Ver en GitHub →</a>
     </div>
-    <div class="project-card">
-      <span class="project-tag">Gestión empresarial</span>
-      <h3>Sistema de Inventario</h3>
-      <p>Aplicación para que pequeños negocios lleven un control preciso de su stock, entradas, salidas y reportes. Diseñada para ser simple y práctica.</p>
-      <div class="project-stack">
-        <span class="stack-tag">Python</span>
-        <span class="stack-tag">Base de datos</span>
-        <span class="stack-tag">Escritorio</span>
-      </div>
-    </div>
-    <div class="project-card">
-      <span class="project-tag">Control de acceso</span>
-      <h3>Sistema para Gimnasio</h3>
-      <p>Solución de control de acceso para gimnasios: registro de miembros, verificación de membresías y registro de entradas y salidas en tiempo real.</p>
+    <div class="project-card reveal reveal-delay-3">
+      <span class="project-tag">Gestión empresarial · Python</span>
+      <h3>📦 Sistema de Inventario</h3>
+      <p>Sistema de escritorio para que pequeños negocios lleven control preciso de su stock, registren entradas y salidas, y generen reportes automáticos. Simple, práctico y a la medida.</p>
       <div class="project-stack">
         <span class="stack-tag">Python</span>
         <span class="stack-tag">MySQL</span>
         <span class="stack-tag">Interfaz gráfica</span>
+        <span class="stack-tag">Reportes</span>
       </div>
     </div>
-    <div class="project-card">
-      <span class="project-tag">Sector salud</span>
-      <h3>Inventario Laboratorio</h3>
-      <p>Sistema de inventario especializado para laboratorios, con control de reactivos, materiales y alertas de stock mínimo para grandes volúmenes.</p>
+    <div class="project-card reveal reveal-delay-1">
+      <span class="project-tag">Control de acceso · Python</span>
+      <h3>🚪 Sistema para Gimnasio</h3>
+      <p>Solución de control de acceso para gimnasios: registro de miembros, validación de membresías activas y control de entradas y salidas en tiempo real. Ideal para negocios locales.</p>
       <div class="project-stack">
         <span class="stack-tag">Python</span>
-        <span class="stack-tag">Reportes</span>
-        <span class="stack-tag">Inventario</span>
+        <span class="stack-tag">MySQL</span>
+        <span class="stack-tag">Interfaz gráfica</span>
+        <span class="stack-tag">Membresías</span>
       </div>
+    </div>
+    <div class="project-card reveal reveal-delay-2">
+      <span class="project-tag">Sector salud · Python</span>
+      <h3>🔬 Inventario Laboratorio</h3>
+      <p>Sistema de inventario especializado para laboratorios con control de reactivos y materiales, alertas de stock mínimo, fechas de caducidad y reportes para grandes volúmenes de insumos.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Base de datos</span>
+        <span class="stack-tag">Caducidades</span>
+        <span class="stack-tag">Reportes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GITHUB DESCRIPTIONS -->
+  <div class="github-desc-box reveal">
+    <h3>📋 Descripciones listas para tus repos de GitHub</h3>
+    <p>Copia y pega en el campo "About" de cada repositorio en GitHub para que luzcan profesionales ante Google Play y reclutadores.</p>
+    <div class="gh-repo">
+      <div class="gh-repo-header">
+        <span class="gh-repo-name">Lneri-ICO / FresasApp</span>
+        <div style="display:flex;align-items:center;gap:0.75rem">
+          <span class="gh-repo-lang"><span class="lang-dot"></span> Kotlin</span>
+          <button class="gh-copy-btn" onclick="copyDesc(this,'fresasapp-desc')">Copiar</button>
+        </div>
+      </div>
+      <p class="gh-repo-desc" id="fresasapp-desc">Android app built in Kotlin for managing a strawberry business — inventory control, product tracking and daily operations from your phone.</p>
+    </div>
+    <div class="gh-repo">
+      <div class="gh-repo-header">
+        <span class="gh-repo-name">Lneri-ICO / CVExpress</span>
+        <div style="display:flex;align-items:center;gap:0.75rem">
+          <span class="gh-repo-lang"><span class="lang-dot"></span> Kotlin</span>
+          <button class="gh-copy-btn" onclick="copyDesc(this,'cvexpress-desc')">Copiar</button>
+        </div>
+      </div>
+      <p class="gh-repo-desc" id="cvexpress-desc">Android app to quickly create and share professional resumes directly from your phone. Fill in your details and get your CV ready to share in minutes.</p>
     </div>
   </div>
 </section>
 
 <!-- CONTACTO -->
 <section id="contacto">
-  <div class="contact-box">
+  <div class="contact-box reveal">
     <div class="contact-text">
       <h2>¿Tienes un proyecto en mente?</h2>
-      <p>Estoy disponible para proyectos freelance, colaboraciones y oportunidades de trabajo. Escríbeme y hablamos.</p>
+      <p>Estoy disponible para proyectos freelance, colaboraciones y oportunidades de trabajo. Escríbeme y hablamos sin compromiso.</p>
       <a href="mailto:enericoncha1@gmail.com" class="btn-primary">Enviar mensaje →</a>
     </div>
     <div class="contact-links">
       <a href="mailto:enericoncha1@gmail.com" class="contact-link">
-        <div class="contact-icon">✉️</div>
-        enericoncha1@gmail.com
+        <div class="contact-icon">✉️</div> enericoncha1@gmail.com
       </a>
       <a href="https://github.com/Lneri-ICO/" target="_blank" class="contact-link">
-        <div class="contact-icon">💻</div>
-        GitHub – Lneri-ICO
+        <div class="contact-icon">💻</div> GitHub – Lneri-ICO
       </a>
-      <a href="https://play.google.com/store/apps/dev?id=NeriSoftDev" target="_blank" class="contact-link">
-        <div class="contact-icon">▶️</div>
-        Google Play – Mis apps
+      <a href="https://play.google.com/store" target="_blank" class="contact-link">
+        <div class="contact-icon">▶️</div> Google Play – Mis apps
       </a>
     </div>
   </div>
@@ -780,8 +512,56 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 <span>NeriSoft Dev</span> · Desarrollado con código y ☕</p>
+  <div class="footer-links">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <p>© 2026 <span>NeriSoft Dev</span> · León, Guanajuato · Desarrollado con código y ☕</p>
 </footer>
 
+<script>
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Skill bars
+  const barObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.skills-bars').forEach(el => barObs.observe(el));
+
+  // Active nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav ul a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+
+  // Copy GitHub descriptions
+  function copyDesc(btn, id) {
+    const text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ Copiado';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
 </body>
 </html>
